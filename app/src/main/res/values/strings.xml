@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">WebViewApp</string>
+    <string name="app_name">Web wieving</string>
     <string name="action_external_web">External Web Page</string>
     <string name="action_internal_web">Internal Web Page</string>
+    <string name="my_link"><![CDATA[https://simonrydberg.xyz/]]></string>
+    <string name="my_link2"><![CDATA[https://student.his.se/]]></string>
 </resources>

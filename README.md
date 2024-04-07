@@ -1,6 +1,8 @@
 
 # Rapport
 
+Bytte namn på appen och tilllät internet. Skapade en webview i rätt layout fil, gav den en ID och skrev kod så att den skapas i OnCreate() med rätt ID. Skapade sedan en webviewclient och satte den på webviewen och ändrade dens javascript inställningar. lade till två html länkar i string, och skrev kod så att de laddas när man klickar på dropdown menyn. 
+
 **Skriv din rapport här!**
 
 _Du kan ta bort all text som finns sedan tidigare_.
@@ -16,24 +18,68 @@ _Du kan ta bort all text som finns sedan tidigare_.
 Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
+<resources>
+    <string name="app_name">Web wieving</string>
+    <string name="action_external_web">External Web Page</string>
+    <string name="action_internal_web">Internal Web Page</string>
+    <string name="my_link"><![CDATA[https://simonrydberg.xyz/]]></string>
+    <string name="my_link2"><![CDATA[https://student.his.se/]]></string>
+</resources>
+
+private WebView myWebView;
+private WebViewClient webViewClient;
+
+public void showExternalWebPage(){
+    // TODO: Add your code for showing external web page here
+    myWebView.loadUrl(getString(R.string.my_link2));
 }
+
+public void showInternalWebPage(){
+    // TODO: Add your code for showing internal web page here
+    myWebView.loadUrl(getString(R.string.my_link));
+
+}
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Toolbar toolbar = findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+
+    myWebView = findViewById(R.id.my_webview);
+    myWebView.setWebViewClient(webViewClient);
+    myWebView.getSettings().setJavaScriptEnabled(true);
+
+}
+
+
+if (id == R.id.action_external_web) {
+    Log.d("==>","Will display external web page");
+    showExternalWebPage();
+    return true;
+}
+
+if (id == R.id.action_internal_web) {
+    Log.d("==>","Will display internal web page");
+    showInternalWebPage();
+    return true;
+}
+
+
+<WebView
+    android:id="@+id/my_webview"
+    android:layout_width="411dp"
+    android:layout_height="674dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](bild1.png)
+![](bild2.png)
 
 Läs gärna:
 
