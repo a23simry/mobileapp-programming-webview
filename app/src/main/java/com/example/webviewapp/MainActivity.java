@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showInternalWebPage(){
         // TODO: Add your code for showing internal web page here
-        myWebView.loadUrl(getString(R.string.my_link));
+        myWebView.loadUrl("file:///android_asset/html.html");
 
     }
 
@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         myWebView = findViewById(R.id.my_webview);
         myWebView.setWebViewClient(webViewClient);
         myWebView.getSettings().setJavaScriptEnabled(true);
+        myWebView.getSettings().setAllowContentAccess(true);
+        myWebView.getSettings().setAllowFileAccess(true);
 
     }
 

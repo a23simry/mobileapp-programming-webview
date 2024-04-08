@@ -1,7 +1,7 @@
 
 # Rapport
 
-Bytte namn på appen och tilllät internet. Skapade en webview i rätt layout fil, gav den en ID och skrev kod så att den skapas i OnCreate() med rätt ID. Skapade sedan en webviewclient och satte den på webviewen och ändrade dens javascript inställningar. lade till två html länkar i string, och skrev kod så att de laddas när man klickar på dropdown menyn. 
+Bytte namn på appen och tilllät internet. Skapade en webview i rätt layout fil, gav den en ID och skrev kod så att den skapas i OnCreate() med rätt ID. Skapade sedan en webviewclient och satte den på webviewen och ändrade dens javascript inställningar. lade till en html länk i string, en väldigt basic html fil i assets foldern och skrev kod så att de laddas när man klickar på dropdown menyn. 
 
 
 ```
@@ -23,7 +23,7 @@ public void showExternalWebPage(){
 
 public void showInternalWebPage(){
     // TODO: Add your code for showing internal web page here
-    myWebView.loadUrl(getString(R.string.my_link));
+    myWebView.loadUrl("file:///android_asset/html.html");
 
 }
 
@@ -60,10 +60,24 @@ if (id == R.id.action_internal_web) {
     android:layout_height="674dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent" />
+    
+basic html file
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+  <h1>Hello, world!</h1>
+</body>
+</html>
 
 ```
 
 
 ![](bild1.png)
-![](bild2.png)
+![](bild3.png)
 
